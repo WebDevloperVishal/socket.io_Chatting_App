@@ -16,6 +16,38 @@
       <button id="sendbtn">Send</button>
       <button id="toggle-btn">Disconnect</button>
     </form>
+
     <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      const socket = io();
+
+      const input = document.querySelector("#input");
+      const btn = document.querySelector("#sendbtn");
+      const toggleButton = document.querySelector("#toggle-btn");
+
+      btn.onclick = (e) => {
+        e.preventDefault();
+        socket.emit("message", input.value.trim());
+        input.value = "";
+      };
+
+      socket.on("message", (msg) => {
+        const li = document.createElement("li");
+        li.innerText = msg;
+        document.querySelector("#messages").appendChild(li);
+      });
+
+      toggleButton.onclick = (e) => {
+        e.preventDefault();
+        if (socket.connected) {
+          toggleButton.innerText = "Connect";
+          socket.disconnect();
+        } else {
+          toggleButton.innerText = "Disconnect";
+          socket.connect();
+        }
+      };
+    </script>
   </body>
 </html>
