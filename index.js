@@ -1,14 +1,12 @@
-const express = require('express')
+const express = require('express');
+const {  createServer } = require("node:http");
+
 const app = express()
-const port = 3000
 
 app.use(express.json())
 
-app.get('/', (req, res) => res.send('Hello World!'))
 
-app.post('/', (req, res) => {
-    console.log(req.body)
-    res.json({ success: true })
+server.listen(3000, () => {
+ console.log(`Server is runnig on port http://localhost:3000`)
 })
-
-app.listen(port, () => console.log(`Example app listening at http://localhost:3000`))
+    
