@@ -32,11 +32,11 @@
         input.value = "";
       };
 
-    //   socket.on("message", (msg) => {
-    //     const li = document.createElement("li");
-    //     li.innerText = msg;
-    //     document.querySelector("#messages").appendChild(li);
-    //   });
+      socket.on("message", (msg) => {
+        const li = document.createElement("li");
+        li.innerText = msg;
+        document.querySelector("#messages").appendChild(li);
+      });
 
     //   toggleButton.onclick = (e) => {
     //     e.preventDefault();
