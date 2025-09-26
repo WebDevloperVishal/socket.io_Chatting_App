@@ -1,13 +1,13 @@
 const express = require('express');
-const { createServer, Server } = require("node:http");
-const { server } = require('socket.io');
+const { createServer } = require("node:http");
+const { Server } = require('socket.io');
 
-app.use(express.static('public'));
 
 const app = express()
-
 const server = createServer(app);
 const io = new Server(server)
+
+app.use(express.static('public'));
 
 app.get('/', (req,res) =>{
     return res.sendFile('index.html')
