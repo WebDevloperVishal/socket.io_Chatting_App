@@ -1,9 +1,11 @@
 const express = require('express');
-const { createServer } = require("node:http");
+const { createServer, Server } = require("node:http");
+const { server } = require('socket.io');
 
 const app = express()
 
-app.use(express.json())
+const server = createServer(app);
+const io = new Server()
 
 server.listen(3000, () => {
  console.log(`Server is runnig on port http://localhost:3000`)
