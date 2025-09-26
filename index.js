@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 })
 
 io.on("connection", (socket) => {
-    
+    console.log('A User Connected : '+ socket.id);
 })
 
 server.listen(3000, () => {
