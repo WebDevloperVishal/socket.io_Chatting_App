@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     return res.sendFile('index.html')
 })
 
-io.on("connection", () => {
+io.on("connection", (socket) => {
     
 })
 
