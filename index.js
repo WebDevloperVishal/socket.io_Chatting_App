@@ -8,11 +8,14 @@ const io = new Server(server)
 
 app.use(express.static('public'));
 
-app.get('/', (req,res) =>{
+app.get('/', (req, res) => {
     return res.sendFile('index.html')
 })
 
-server.listen(3000, () => {
- console.log(`Server is runnig on port http://localhost:3000`)
-})
+io.on("connection", () => {
     
+})
+
+server.listen(3000, () => {
+    console.log(`Server is runnig on port http://localhost:3000`)
+})
