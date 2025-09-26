@@ -14,6 +14,10 @@ app.get('/', (req, res) => {
 
 io.on("connection", (socket) => {
     console.log('A User Connected : '+ socket.id);
+
+    socket.on("message", (msg)=>{
+        console.log(msg);
+    })
 })
 
 server.listen(3000, () => {
